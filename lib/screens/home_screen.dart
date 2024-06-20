@@ -10,20 +10,22 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.deepPurple,
-        leading: IconButton(
-          onPressed: () {},
-          icon: const Icon(
-            Icons.menu,
-            color: Colors.white,
-          ),
-        ),
+        backgroundColor: Colors.transparent,
+        leading: Padding(
+            padding: const EdgeInsets.all(10),
+            child: Image.asset('assets/icons/pdf.png')),
         title: const Text(
           'PDF Reader',
           style: TextStyle(
-            color: Colors.white,
+            color: Colors.grey,
             fontWeight: FontWeight.w600,
           ), // you can replace it with a logo
+        ),
+        centerTitle: true,
+        titleTextStyle: TextStyle(
+          color: Colors.grey[700],
+          fontSize: 24.0,
+          fontWeight: FontWeight.bold,
         ),
       ),
       body: Padding(
@@ -56,13 +58,17 @@ class HomeScreen extends StatelessWidget {
                           title: Text(
                             doc.docTitle!,
                             maxLines: 2,
-                            style: GoogleFonts.nunito(),
+                            style: GoogleFonts.nunito().copyWith(
+                                fontSize: 20.0, fontWeight: FontWeight.w500),
                             overflow: TextOverflow.ellipsis,
                           ),
                           subtitle: Text(
                             '${doc.pageNum!} Pages',
                             style: const TextStyle(
                               color: Colors.grey,
+                              fontSize: 16.0,
+                              fontWeight: FontWeight.w400,
+                              fontStyle: FontStyle.italic,
                             ),
                           ),
                           leading: const Icon(
